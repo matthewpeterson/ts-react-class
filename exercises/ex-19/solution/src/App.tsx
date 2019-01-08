@@ -1,17 +1,15 @@
 import * as React from 'react';
+import { Provider } from 'react-redux';
 
 import './css/local.css';
 
-import PayeeDetailRedux from './payees/PayeeDetailRedux';
-
-// Swap this in to see the state changes logged with the redux logger
-// import PayeeDetailRedux from './payees/PayeeDetailReduxWithLogger';
-
-// Swap this in to see the state changes in the Redux devtools
-// import PayeeDetailRedux from './payees/PayeeDetailReduxWithDevtools';
-
 import Navbar from './Navbar';
 import DemoManager from './demos/DemoManager';
+import { createStore } from 'redux';
+import payeeApp from './payees/payee-reducers';
+import PayeesContainerRedux from './payees/PayeesContainerRedux';
+
+// const store = createStore( payeeApp );
 
 enum Views {
   Demos, Payees
@@ -43,7 +41,7 @@ export default class App extends React.Component<{}, { view: Views }> {
         <Navbar selectView={ this.handleSelectView }/>
         {
           this.state.view === Views.Payees ?
-            <PayeeDetailRedux/> :
+            <PayeesContainerRedux/> :
             <DemoManager/>
 
         }
