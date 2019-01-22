@@ -15,7 +15,7 @@
     "@types/react-test-renderer": "^16.0.3",
     "@types/redux-actions": "^2.3.1",
     "@types/redux-logger": "^3.0.6",
-    "bootstrap": "^3",
+    "bootstrap": "^4.2.1",
     "del": "^3.0.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
