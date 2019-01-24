@@ -3,19 +3,21 @@ import { AnyAction } from "redux";
 import Payee from "../data/Payee";
 import { payeesDAO } from "../data/class-data";
 
-const initialState: ReduxPayeeState = {
+const initialState: ReduxPayeesState = {
     sortField: '',
     sortDirection: 'asc',
-    payees: payeesDAO.list()
+    payees: payeesDAO.list(),
+    searchText: ''
 };
 
-interface ReduxPayeeState {
+export interface ReduxPayeesState {
     sortField: string;
     sortDirection: 'asc' | 'desc';
-    payees: Payee[]
+    payees: Payee[];
+    searchText: string;
 }
 
-const payeesReducer = (state = initialState, {type,payload}:AnyAction) => {
+export const payeesReducer = (state = initialState, {type,payload}:AnyAction) => {
     switch(type){
 
         case payeeActions.SORT_PAYEES:
@@ -26,6 +28,10 @@ const payeesReducer = (state = initialState, {type,payload}:AnyAction) => {
                 }
 
             return {...state, ...payload, sortDirection};
+
+        case payeeActions.SEARCH_PAYEES:
+
+            return {...state, ...payload};
 
         default:
             return state;

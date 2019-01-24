@@ -8,6 +8,9 @@ import PayeeManager from './payees/PayeeManager';
 import Transactionmanager from './tx/TransactionManager';
 import Navbar from './Navbar';
 import Home from './Home';
+import {Provider} from 'react-redux';
+import store from './create-store';
+import PayeesManagerRedux from './payees/PayeesManagerRedux';
 
 export default class App extends React.Component {
   payee: Payee;
@@ -25,23 +28,28 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <section>
+      <Provider store={store}>
+        <Router>
+          <section>
 
-          <div className="row">
-            <div className="col">
-              <Navbar/>
+            <div className="row">
+              <div className="col">
+                <Navbar/>
+              </div>
             </div>
-          </div>
 
-          <div className="row">
-            <div className="col">
-            <Route exact path="/" component={Home}/>
-            <Route path="/payee" component={PayeeManager} />
-            <Route path="/tx" component={Transactionmanager}/>            </div>
-          </div>
-        </section>
-      </Router>
+            <div className="row">
+              <div className="col">
+                <Route exact path="/" component={Home}/>
+                {/* <Route path="/payee" component={PayeeManager} /> */}
+                <Route path="/payee" component={PayeesManagerRedux} />
+                <Route path="/tx" component={Transactionmanager}/>            
+              </div>
+            </div>
+          </section>
+        </Router>
+      </Provider>
+
     );
   }
 }

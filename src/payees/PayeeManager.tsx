@@ -26,7 +26,7 @@ export default class PayeeManager extends Component<any,PayeesManagerState> {
 
   handleSortPayees = (sortProperty: string, ascending = true) => {
 
-    let filteredPayees = _.orderBy(payees,sortProperty,ascending ? "asc" : "desc");
+    let filteredPayees = _.orderBy(this.state.filteredPayees,sortProperty,ascending ? "asc" : "desc");
     this.setState({filteredPayees});
   }
   
