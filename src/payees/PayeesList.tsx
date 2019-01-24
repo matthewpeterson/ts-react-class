@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Payee from '../data/Payee'
+import { Link } from 'react-router-dom'
 
 interface PayeesListProps{
     payees: Payee[];
@@ -80,10 +81,10 @@ export default class PayeesList extends Component<PayeesListProps,PayeesListStat
                 {
                     this.props.payees.map(payee=>(
                         <tr key={payee.id}>                            
-                            <td>{ payee.payeeName }</td>
-                            <td>{ payee.city }</td>
-                            <td>{ payee.state }</td>
-                        </tr>
+                                <td><Link to={`/payees/4/detail`} >{ payee.payeeName } as</Link></td>
+                                <td>{ payee.city }</td>
+                                <td>{ payee.state }</td>
+                            </tr>
                     ))
                 }
    

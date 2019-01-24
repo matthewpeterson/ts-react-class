@@ -8,7 +8,7 @@ export default function Navbar() {
 
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item"><NavLink to="/" exact className="nav-link" activeClassName="active">Home</NavLink></li>
-                <li className="nav-item"><NavLink to="/payee" className="nav-link" activeClassName="active">Payee</NavLink></li>
+                <li className="nav-item"><NavLink to="/payees" className="nav-link" activeClassName="active">Payee</NavLink></li>
                 <li className="nav-item"><NavLink to="/tx" className="nav-link" activeClassName="active">Transaction</NavLink></li>
             </ul>
         </div>

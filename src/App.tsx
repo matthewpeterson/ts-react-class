@@ -42,7 +42,7 @@ export default class App extends React.Component {
               <div className="col">
                 <Route exact path="/" component={Home}/>
                 {/* <Route path="/payee" component={PayeeManager} /> */}
-                <Route path="/payee" component={PayeesManagerRedux} />
+                <Route path="/payees" component={PayeesManagerRedux} />
                 <Route path="/tx" component={Transactionmanager}/>            
               </div>
             </div>

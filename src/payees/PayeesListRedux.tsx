@@ -5,6 +5,7 @@ import { AnyAction, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { sortPayees } from './payees-actions';
 import _ from 'lodash';
+import {Link} from 'react-router-dom';
 
 interface PayeesListReduxProps{
     payees: Payee[];
@@ -31,17 +32,17 @@ function PayeesListRedux(props:PayeesListReduxProps) {
     <thead>
         <tr>
             <th  onClick={()=>props.sortPayees('payeeName')} >Payee Name {getSortIcon('payeeName')}</th>
-            <th  onClick={()=>props.sortPayees('city')}>City {getSortIcon('city')}</th>
-            <th  onClick={()=>props.sortPayees('state')}>State {getSortIcon('state')}</th>
+            <th  onClick={()=>props.sortPayees('address.city')}>City {getSortIcon('address.city')}</th>
+            <th  onClick={()=>props.sortPayees('address.state')}>State {getSortIcon('address.state')}</th>
         </tr>
     </thead>
     <tbody>
         {
             props.payees.map(payee=>(
                 <tr key={payee.id}>                            
-                    <td>{ payee.payeeName }</td>
-                    <td>{ payee.city }</td>
-                    <td>{ payee.state }</td>
+                    <td> <Link to={`/payees/${payee.id}/detail`}> { payee.payeeName } </Link></td>
+                    <td>{ payee.address ? payee.address.city: payee.city }</td>
+                    <td>{ payee.address ? payee.address.state: payee.state }</td>
                 </tr>
             ))
         }

@@ -9,6 +9,7 @@ interface PayeeSearchState {
 interface PayeeSearchProps {
   searchPayees: (searchText: string) => void;
   hideSearchButton?: boolean;
+  searchText?: string;
 }
 
 export default class PayeeSearch extends Component<PayeeSearchProps,PayeeSearchState> {
@@ -17,7 +18,7 @@ export default class PayeeSearch extends Component<PayeeSearchProps,PayeeSearchS
     super(props);
 
     this.state = {
-      searchText : ''
+      searchText : props.searchText || ''
     }
   }
 

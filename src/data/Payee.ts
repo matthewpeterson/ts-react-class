@@ -5,7 +5,7 @@ import Address from './Address';
 export default interface Payee extends HasId {
   id: string;
   payeeName: string;
-  address?: Address | string;
+  address?: Address  ;
   city?: string;
   state?: string;
   zip?: string;
